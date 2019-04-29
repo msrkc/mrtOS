@@ -1,0 +1,134 @@
+*,
+*::after,
+*::before
+  margin 0
+  padding 0
+  box-sizing: inherit
+
+html
+   font-size 62.5%; // 10px
+   font-family font-default
+   font-weight: 500
+   +respond-above($xl)
+      font-size 75% // 12
+   // +respond-below($md)
+   //    font-size 56.25% // 9px
+
+body
+   -webkit-font-smoothing: antialiased;
+   box-sizing border-box
+   background: blue-darkest url(../assets/bg.svg)
+   // background: url(../assets/bg.svg)
+   // background-size cover
+   font-weight 500
+   line-height 1.6
+   position relative
+   color blue-dark
+   background-size cover
+
+
+#app
+   width 100%
+   height 100vh
+   position relative
+
+.nav
+   color blue-font-color
+   border-bottom blue-border 1px solid
+   padding 1.2rem
+   background-image:linear-gradient(to right,blue-nav,blue-window);
+   Flex(row)
+   font-size 1.2rem
+   align-content: center
+   font-weight: 500
+   box-shadow shadow-50
+   flex-wrap: wrap
+   &--logo
+      z-index:100;
+      transform: rotate(180deg)
+      width 3.3rem
+      height 2.1rem
+      ml(.8rem)
+      +respond-below($sm)
+         ml(0)
+   &--title
+      user-select: none
+      ml(2.5rem)
+   &--menu
+      list-style none
+      display inline-flex
+      +respond-below($sm)
+         width 100%
+      &-item
+         position relative
+         ml(2.5rem)
+         cursor pointer
+         t-all(.5s)
+         +respond-below($sm)
+            mt(1rem)
+            &:first-child
+               ml(.4rem)
+         &-span
+            &:hover
+               color white
+         &-dropdown
+            position: absolute;
+            z-index: 1000000;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+            border blue-border 2px solid
+            padding .5rem 1rem
+            border-radius(10px)
+            mt(.5rem)
+            width 20rem
+            left 0
+            background-color: blue-window
+            &-span
+               width: 100%
+               display: inline-flex
+               padding: .8rem .5rem;
+               &:not(:last-child)
+                  border-bottom blue-border 1px solid
+                  mb(.5rem)
+
+
+
+.window
+   background-color blue-window
+   min-height 30rem
+   position absolute
+   border blue-border 2px solid
+   color blue-font-color
+   box-shadow shadow-50
+   width auto
+   +respond-below($sm)
+      width 100%
+   &-small
+      width 60rem
+      +respond-below($sm)
+         width auto
+   &--restrictor
+      top:6rem
+      position absolute
+      right 2rem
+      bottom 2rem
+      left 2rem
+      +respond-below($sm)
+         top 9rem
+         left 1rem
+         right 1rem
+         bottom 1rem
+
+   &--title
+      border-bottom blue-border 2px solid
+      Flex(row)
+      padding .5rem
+      &-icons
+         background-color: transparent
+         border none
+         color blue-light
+         &:hover
+            color blue-dark
+         i
+            font-size:1.5rem
+            t-all(.5s)
+

@@ -1,0 +1,87 @@
+// flex
+Flex($direction)
+  display flex
+  if $direction == 'col'
+    flex-direction column
+  if $direction == 'row'
+    flex-direction row
+
+// responsive helpers
+respond-below($width)
+  $width = $width - 1
+  media = 'all and (max-width: %s)' % $width
+  @media media
+    {block}
+
+respond-above($width)
+  media = 'all and (min-width: %s)' % $width
+  @media media
+    {block}
+
+respond-between($min-width, $max-width)
+  $max-width = $max-width - 1
+  media = 'all and (min-width: %s) and (max-width: %s)' % ($min-width $max-width)
+  @media media
+    {block}
+
+//borde radius
+border-radius(n)
+  -webkit-border-radius n
+  -moz-border-radius n
+  border-radius n
+t-all(n)
+  transition all (n)s
+// margins
+ml(n)
+  margin-left n
+mr(n)
+  margin-right n
+mt(n)
+  margin-top n
+mb(n)
+  margin-bottom n
+.mt-1
+  mt(1rem)
+.mt-2
+  mt(2rem)
+.mt-3
+  mt(3rem)
+.mb-2
+  mb(2rem)
+.ml-10
+  ml(10rem)
+
+//paddings
+pl(n)
+  padding-left n
+pr(n)
+  padding-right n
+pt(n)
+  padding-top n
+pb(n)
+  padding-bottom
+.pt-1
+  pt(1rem)
+.pt-2
+  pt(2rem)
+.pt-3
+  pt(3rem)
+.pb-2
+  pb(2rem)
+
+// other
+centered()
+   display flex
+   flex-direction column
+   justify-content: center
+   align-items: center
+
+
+
+.fade-enter-active, .fade-leave-active
+   -webkit-transition: opacity 0.25s;
+   transition: opacity 0.25s;
+
+
+.fade-enter, .fade-leave-to
+   opacity: 0;
